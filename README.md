@@ -9,11 +9,11 @@ Implemented in Python and PostgresSQL
  *  Clone or download .zip of this repo
  *  Open terminal and cd into repo directory
  *  Run the following from terminal prompt
-    1. vagrant up (this will take a while)
-    2. vagrant ssh 
-    3. cd /vagrant/tournament
-    4. psql -f tournament.sql 
-    5. python tournament_results.py
+    1. `vagrant up` (this will take a while)
+    2. `vagrant ssh` 
+    3. `cd /vagrant/tournament`
+    4. `psql -f tournament.sql` 
+    5. `python tournament_results.py`
  
 
 
