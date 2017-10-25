@@ -5,6 +5,7 @@
 
 import psycopg2
 
+
 def connect():
     """Connect to the PostgreSQL database.  Returns a database connection."""
     return psycopg2.connect("dbname=tournament")
@@ -18,6 +19,7 @@ def deleteMatches():
     db.commit()
     db.close()
 
+
 def deletePlayers():
     """Remove all the player records from the database."""
     db = connect()
@@ -25,6 +27,7 @@ def deletePlayers():
     cur.execute("DELETE FROM players")
     db.commit()
     db.close()
+
 
 def countPlayers():
     """Returns the number of players currently registered."""
@@ -34,8 +37,8 @@ def countPlayers():
     count = cur.fetchone()
     db.commit()
     db.close()
-    # Return first item in tuple
-    return count[0]
+    return count[0]  # Return first item in tuple
+
 
 def registerPlayer(name):
     """Adds a player to the tournament database.
@@ -53,11 +56,12 @@ def registerPlayer(name):
     db.commit()
     db.close()
 
+
 def playerStandings():
     """Returns a list of the players and their win records, sorted by wins.
 
-    The first entry in the list should be the player in first place, or a player
-    tied for first place if there is currently a tie.
+    The first entry in the list should be the player in first place, or a
+    player tied for first place if there is currently a tie.
 
     Returns:
       A list of tuples, each of which contains (id, name, wins, matches):
@@ -83,7 +87,8 @@ def reportMatch(winner, loser):
     """
     db = connect()
     c = db.cursor()
-    c.execute("INSERT INTO matches (winner, loser) VALUES ({}, {})".format(winner, loser))
+    c.execute("INSERT INTO matches (winner, loser) VALUES ({}, {})"
+              .format(winner, loser))
     db.commit()
     db.close()
 
@@ -114,4 +119,3 @@ def swissPairings():
 
         result.append(pairing)
     return result
-        
