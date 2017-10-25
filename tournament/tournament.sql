@@ -40,8 +40,6 @@ CREATE TABLE matches (
 
 -- VIEWS --
 
-GO
-
 CREATE VIEW standings AS
     SELECT players.id, players.name, 
     (SELECT count(matches.winner) FROM matches WHERE players.id = matches.winner) AS win_count, 
