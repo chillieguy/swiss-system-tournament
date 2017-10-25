@@ -15,9 +15,7 @@ DROP TABLE IF EXISTS players CASCADE;
 DROP TABLE IF EXISTS matches;
 
 -- DROP Views
---DROP VIEW IF EXISTS wins;
 DROP VIEW IF EXISTS standings;
---DROP VIEW IF EXISTS count;
 
 -- Create database and attach to tournament database
 CREATE DATABASE tournament;
