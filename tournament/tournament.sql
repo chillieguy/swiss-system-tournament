@@ -10,13 +10,6 @@
 
 DROP database tournament;
 
--- DROP Tables
-DROP TABLE IF EXISTS players CASCADE;
-DROP TABLE IF EXISTS matches;
-
--- DROP Views
-DROP VIEW IF EXISTS standings;
-
 -- Create database and attach to tournament database
 CREATE DATABASE tournament;
 \c tournament;
@@ -26,7 +19,7 @@ CREATE DATABASE tournament;
 -- Players Table
 CREATE TABLE players (
     id SERIAL PRIMARY KEY,
-    name varchar(255) NOT NULL
+    name TEXT NOT NULL
 );
 
 -- Matches Table
