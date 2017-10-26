@@ -5,10 +5,17 @@
 
 import psycopg2
 
+def execute_query(query):
+    """Helper function: takes query and executes it"""
+
 
 def connect():
     """Connect to the PostgreSQL database.  Returns a database connection."""
-    return psycopg2.connect("dbname=tournament")
+    try:
+        return psycopg2.connect("dbname=tournament")
+    except psycopg2.Error as e:
+        print("Error: {}".format(e.pgerror))
+        print("Severity: {}".format(e.diag.severity))
 
 
 def deleteMatches():
@@ -87,8 +94,8 @@ def reportMatch(winner, loser):
     """
     db = connect()
     c = db.cursor()
-    c.execute("INSERT INTO matches (winner, loser) VALUES ({}, {})"
-              .format(winner, loser))
+    sql = "INSERT INTO matches (winner, loser) VALUES (%s, %s)"
+    c.execute(sql, (winner, loser))
     db.commit()
     db.close()
 
