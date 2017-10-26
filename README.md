@@ -2,8 +2,8 @@
 Implemented in Python and PostgresSQL
 
 ### Required software
-* [VirtualBox]()
-* [Vagrant]()
+* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+* [Vagrant](https://www.vagrantup.com/downloads.html)
 
 ### To run test code
  *  Clone or download .zip of this repo
